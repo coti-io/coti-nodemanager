@@ -5,23 +5,17 @@
 
     <groupId>io.coti</groupId>
     <artifactId>coti-node</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0.RELEASE</version>
     <packaging>pom</packaging>
 
     <modules>
         <module>pot</module>
         <module>basenode</module>
-        <module>fullnode</module>
-        <module>dspnode</module>
-        <module>zerospend</module>
-        <module>tools</module>
-        <module>trustscore</module>
-        <module>financialserver</module>
         <module>nodemanager</module>
     </modules>
 
     <name>coti-node</name>
-    <description>Coti Full Node</description>
+    <description>Coti Node Manager</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
