@@ -2,6 +2,7 @@ package io.coti.nodemanager.services;
 
 import io.coti.basenode.data.NodeType;
 import io.coti.basenode.database.interfaces.IDatabaseConnector;
+import io.coti.basenode.exceptions.CotiRunTimeException;
 import io.coti.basenode.services.interfaces.*;
 import io.coti.nodemanager.model.ActiveNodes;
 import io.coti.nodemanager.services.interfaces.IHealthCheckService;
@@ -58,6 +59,10 @@ public class InitializationService {
             nodeManagementService.init();
             communicationService.initPublisher(propagationPort, NodeType.NodeManager);
             healthCheckService.init();
+        } catch (CotiRunTimeException e) {
+            log.error("Errors at {}", this.getClass().getSimpleName());
+            e.logMessage();
+            System.exit(SpringApplication.exit(applicationContext));
         } catch (Exception e) {
             log.error("Errors at {}", this.getClass().getSimpleName());
             log.error("{}: {}", e.getClass().getName(), e.getMessage());
